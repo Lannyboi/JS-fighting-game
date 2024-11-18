@@ -26,7 +26,6 @@ const shop = new Sprite({
     framesMax: 6
 })
 
-
 const player = new Fighter({
     position: {
         x: 0,
@@ -46,6 +45,16 @@ const player = new Fighter({
     offset: {
         x: 215,
         y: 157
+    },
+    sprites: {
+        idle: {
+            imageSrc: "./img/samuraiMack/Idle.png",
+            framesMax: 8
+        },
+        run: {
+            imageSrc: "./img/samuraiMack/Run.png",
+            framesMax: 8
+        },
     }
 })
 
@@ -99,6 +108,7 @@ function animate() {
     // Player movement
     if (keys.a.pressed && player.lastKey === "a") {
         player.velocity.x = -5
+        player.image = player.image = player.sprites.run.image;
     } else if (keys.d.pressed && player.lastKey === "d") {
         player.velocity.x = 5
     }
